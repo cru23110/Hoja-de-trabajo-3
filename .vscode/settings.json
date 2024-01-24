@@ -1,16 +1,5 @@
 {
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-21",
-            "path": "c:\\Users\\RJBar\\Downloads\\graalvm-jdk-21.0.2+13.1"
-        }
-    ],
-    "graalvm.home": "c:\\Users\\RJBar\\Downloads\\graalvm-jdk-21.0.2+13.1",
-    "graalvm.installations": [
-        "c:\\Users\\RJBar\\Downloads\\graalvm-jdk-21.0.2+13.1"
-    ],
-    "terminal.integrated.env.windows": {
-        "GRAALVM_HOME": "c:\\Users\\RJBar\\Downloads\\graalvm-jdk-21.0.2+13.1"
-    },
-    "java.home": "c:\\Users\\RJBar\\Downloads\\graalvm-jdk-21.0.2+13.1"
+    "java.configuration.runtimes": [],
+    "graalvm.installations": [],
+    "terminal.integrated.env.windows": {}
 }
