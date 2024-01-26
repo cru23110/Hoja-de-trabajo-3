@@ -17,7 +17,7 @@ public class VlastnýZásobník<T> {
 
     public T vyber() {
         if (jePrazdny()) {
-            throw new IllegalStateException("Zásobník je prázdny");
+            throw new IllegalStateException("La bandeja esta vacia");
         }
         T data = vrch.getData();
         vrch = vrch.getNext();
@@ -26,7 +26,7 @@ public class VlastnýZásobník<T> {
 
     public T vrchol() {
         if (jePrazdny()) {
-            throw new IllegalStateException("Zásobník je prázdny");
+            throw new IllegalStateException("La bandeja esta vacia");
         }
         return vrch.getData();
     }
