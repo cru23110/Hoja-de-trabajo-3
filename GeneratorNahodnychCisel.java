@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class GeneratorNahodnychCisel {
+class GeneratorNahodnychCisel {
     public int[] generateNumbers(int amount) {
         Random random = new Random();
         int[] numbers = new int[amount];
