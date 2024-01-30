@@ -1,6 +1,17 @@
+/*Universidad del Valle de Guatemala
+ * Hoja de trabajo #3 - Algoritmos y Estructura de Datos
+ * Juan Cruz - 23110 | Roberto Barreda - 23354
+ */
+
 import java.util.*; 
 public class AlgoritmyTriediena {
 
+
+    
+    /** 
+     * @param arr[]
+     * @param n
+     */
     static void gnomeSort(int arr[], int n) 
     { 
         int index = 0; 
@@ -20,6 +31,12 @@ public class AlgoritmyTriediena {
         } 
         return; 
     }
+    
+    /** 
+     * @param arr[]
+     * @param l
+     * @param r
+     */
     static void mergeSort(int arr[], int l, int r) {
         if (l < r) {
             int m = l + (r - l) / 2;
@@ -30,7 +47,13 @@ public class AlgoritmyTriediena {
             merge(arr, l, m, r);
         }
     }
-
+    
+    /** 
+     * @param arr[]
+     * @param l
+     * @param m
+     * @param r
+     */
     static void merge(int arr[], int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -70,6 +93,12 @@ public class AlgoritmyTriediena {
         }
     }
 
+    /** 
+     * @param arr[]
+     * @param low
+     * @param high
+     * @return int
+     */
     static int partition(int arr[], int low, int high) {
         int pivot = arr[high]; 
         int i = (low - 1);
@@ -86,7 +115,12 @@ public class AlgoritmyTriediena {
         arr[high] = temp;
         return i + 1;
     }
-
+    
+    /** 
+     * @param arr[]
+     * @param low
+     * @param high
+     */
     static void quickSort(int arr[], int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -94,7 +128,12 @@ public class AlgoritmyTriediena {
             quickSort(arr, pi + 1, high);
         }
     }
-
+    
+    /** 
+     * @param arr[]
+     * @param n
+     * @param exp
+     */
     static void countingSort(int arr[], int n, int exp) {
         int output[] = new int[n];
         int count[] = new int[10];
@@ -114,14 +153,21 @@ public class AlgoritmyTriediena {
         for (int i = 0; i < n; i++)
             arr[i] = output[i];
     }
-
+    
+    /** 
+     * @param arr[]
+     * @param n
+     */
     static void radixsort(int arr[], int n) {
         int m = Arrays.stream(arr).max().getAsInt();
 
         for (int exp = 1; m / exp > 0; exp *= 10)
             countingSort(arr, n, exp);
     }
-
+    
+    /** 
+     * @param arr[]
+     */
     static void selectionSort(int arr[]) {
         int n = arr.length;
 
