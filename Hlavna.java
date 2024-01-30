@@ -11,9 +11,12 @@ import java.util.Scanner;
 public class Hlavna {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        // Ingresar la cantidad de números a generar
         System.out.println("Enter the amount of numbers to generate:");
         int amount = scanner.nextInt();
 
+        // Generar números aleatorios
         GeneratorNahodnychCisel generator = new GeneratorNahodnychCisel();
         int[] numbers = generator.generateNumbers(amount);
 
@@ -26,38 +29,57 @@ public class Hlavna {
             System.out.println("An error occurred while trying to write to the file.");
             e.printStackTrace();
         }
+        // Instanciar el profiler
+        TesterProgramov profiler = new TesterProgramov();
 
-        // El sorteo de los gnomos
-        long startTimeGnomeSort = System.currentTimeMillis();
-        AlgoritmyTriediena.gnomeSort(numbers, amount);
-        long endTimeGnomeSort = System.currentTimeMillis();
-        GrafickyPloter.generarCSV("GnomeSort", amount, endTimeGnomeSort - startTimeGnomeSort);
+        while (true) {
+            // Seleccionar algoritmo de ordenamiento
+            System.out.println("Choose sorting algorithm:");
+            System.out.println("1. Gnome Sort");
+            System.out.println("2. Merge Sort");
+            System.out.println("3. Quick Sort");
+            System.out.println("4. Radix Sort");
+            System.out.println("5. Selection Sort");
+            System.out.println("0. Exit");
+            int choice = scanner.nextInt();
 
-        // Merengue de ordenamiento
-        long startTimeMergeSort = System.currentTimeMillis();
-        AlgoritmyTriediena.mergeSort(numbers, 0, numbers.length - 1);
-        long endTimeMergeSort = System.currentTimeMillis();
-        GrafickyPloter.generarCSV("MergeSort", amount, endTimeMergeSort - startTimeMergeSort);
+            if (choice == 0) {
+                System.out.println("Exiting the program.");
+                break;
+            }
 
-        // Rapidos y furiosos
-        long startTimeQuickSort = System.currentTimeMillis();
-        AlgoritmyTriediena.quickSort(numbers, 0, numbers.length - 1);
-        long endTimeQuickSort = System.currentTimeMillis();
-        GrafickyPloter.generarCSV("QuickSort", amount, endTimeQuickSort - startTimeQuickSort);
+            long startTime = System.nanoTime();
 
-        // Un sorteo de rabanos
-        long startTimeRadixSort = System.currentTimeMillis();
-        AlgoritmyTriediena.radixsort(numbers, numbers.length);
-        long endTimeRadixSort = System.currentTimeMillis();
-        GrafickyPloter.generarCSV("RadixSort", amount, endTimeRadixSort - startTimeRadixSort);
-
-        // Picky eater
-        long startTimeSelectionSort = System.currentTimeMillis();
-        AlgoritmyTriediena.selectionSort(numbers);
-        long endTimeSelectionSort = System.currentTimeMillis();
-        GrafickyPloter.generarCSV("SelectionSort", amount, endTimeSelectionSort - startTimeSelectionSort);
-
-        // Guardar en resultados.txt
-        ObsluznyProgramSuboru.writeNumbersToFile("resultados.txt", numbers);
+            switch (choice) {
+                case 0 :
+                    System.out.println("Exiting the program.");
+                    break;
+                case 1: // El sorteo de los gnomos
+                    AlgoritmyTriediena.gnomeSort(numbers, amount);
+                    GrafickyPloter.generarCSV("GnomeSort", amount, System.nanoTime() - startTime);
+                    break;
+                case 2: // Merengue de ordenamiento
+                    AlgoritmyTriediena.mergeSort(numbers, 0, numbers.length - 1);
+                    GrafickyPloter.generarCSV("MergeSort", amount, System.nanoTime() - startTime);
+                    break;
+                case 3: // Rapidos y furiosos
+                    AlgoritmyTriediena.quickSort(numbers, 0, numbers.length - 1);
+                    GrafickyPloter.generarCSV("QuickSort", amount, System.nanoTime() - startTime);
+                    break;
+                case 4: // Un sorteo de rabanos
+                    AlgoritmyTriediena.radixsort(numbers, numbers.length);
+                    GrafickyPloter.generarCSV("RadixSort", amount, System.nanoTime() - startTime);
+                    break;
+                case 5: // Picky eater
+                    AlgoritmyTriediena.selectionSort(numbers);
+                    GrafickyPloter.generarCSV("SelectionSort", amount, System.nanoTime() - startTime);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please choose a valid sorting algorithm.");
+                    break;
+            }
+            // Guardar en resultados.txt
+            ObsluznyProgramSuboru.writeNumbersToFile("resultados.txt", numbers);
+        }
     }
 }

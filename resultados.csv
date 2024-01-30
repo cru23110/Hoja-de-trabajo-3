@@ -1,0 +1,10 @@
+Algoritmo,Cantidad de Números,Tiempo
+GnomeSort,200,1
+MergeSort,200,0
+QuickSort,200,1
+RadixSort,200,1
+GnomeSort,300,1923300
+MergeSort,300,169600
+QuickSort,300,943500
+RadixSort,300,957600
+SelectionSort,300,427700
