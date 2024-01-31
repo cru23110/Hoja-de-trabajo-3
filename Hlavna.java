@@ -13,7 +13,7 @@ public class Hlavna {
         Scanner scanner = new Scanner(System.in);
 
         // Ingresar la cantidad de números a generar
-        System.out.println("Enter the amount of numbers to generate:");
+        System.out.println("Ingresa la cantidad de numeros a generar:");
         int amount = scanner.nextInt();
 
         // Generar números aleatorios
@@ -26,7 +26,7 @@ public class Hlavna {
                 writer.println(number);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred while trying to write to the file.");
+            System.out.println("Ocurrió un error escribiendo en el archivo.");
             e.printStackTrace();
         }
         // Instanciar el profiler
@@ -34,17 +34,17 @@ public class Hlavna {
 
         while (true) {
             // Seleccionar algoritmo de ordenamiento
-            System.out.println("Choose sorting algorithm:");
+            System.out.println("Elige un algoritmo de sorteo:");
             System.out.println("1. Gnome Sort");
             System.out.println("2. Merge Sort");
             System.out.println("3. Quick Sort");
             System.out.println("4. Radix Sort");
             System.out.println("5. Selection Sort");
-            System.out.println("0. Exit");
+            System.out.println("0. Salir");
             int choice = scanner.nextInt();
 
             if (choice == 0) {
-                System.out.println("Exiting the program.");
+                System.out.println("Saliendo del programa...");
                 break;
             }
 
@@ -52,7 +52,7 @@ public class Hlavna {
 
             switch (choice) {
                 case 0 :
-                    System.out.println("Exiting the program.");
+                    System.out.println("Saliendo del programa...");
                     break;
                 case 1: // El sorteo de los gnomos
                     AlgoritmyTriediena.gnomeSort(numbers, amount);
@@ -75,7 +75,7 @@ public class Hlavna {
                     GrafickyPloter.generarCSV("SelectionSort", amount, System.nanoTime() - startTime);
                     break;
                 default:
-                    System.out.println("Invalid choice. Please choose a valid sorting algorithm.");
+                    System.out.println("Opcion invalida.");
                     break;
             }
             // Guardar en resultados.txt
