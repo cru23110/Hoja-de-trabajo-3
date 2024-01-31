@@ -1,10 +1,11 @@
-Algoritmo,Cantidad de Números,Tiempo
-GnomeSort,200,1
-MergeSort,200,0
-QuickSort,200,1
-RadixSort,200,1
-GnomeSort,300,1923300
-MergeSort,300,169600
-QuickSort,300,943500
-RadixSort,300,957600
-SelectionSort,300,427700
+Algoritmo,Cantidad de Números,Tiempo,Complejidad Teórica
+GnomeSort,3200,8861500,1.024E7
+QuickSort,3200,7863000,1.024E7
+RadixSort,3200,1697300,11216.479930623698
+SelectionSort,3200,5711300,1.024E7
+MergeSort,500,991400,3107.3
+QuickSort,500,1414400,250000.0
+RadixSort,500,919500,1349.49
+SelectionSort,500,794800,250000.0
+MergeSort,500,54200,3107.3
+GnomeSort,500,22000,250000.0
